@@ -17,7 +17,6 @@ Erasure coding is a mathematical method to *encode data* in a way that it can be
 
 For those without any background on storage recovery, it is advised to watch this video and this presentation that explains at high level the algorithm and supplies examples and illustrations. 
 
-
 ## Erasure Coding Offload Programming Models
 
 There are different programming models that an application can choose to implement RAID and Erasure Coding (EC) offload. We will show an example of 5-2 coding (5 data blocks and 2 calculated redundancy blocks).
@@ -59,7 +58,6 @@ Asynchronous EC calculation is also possible where the application can post an E
 
 When the adapter completes the calculation, it notifies the application so it can continue to send the data and coding blocks to the relevant peers (OSDs).
 
-
 ##### Programming Steps
 
 1. Post encode_async(data, code, block_size, …).
@@ -69,11 +67,11 @@ When the adapter completes the calculation, it notifies the application so it ca
 
 Unlike the synchronous model, the call to async encoding is non-blocking and is a fast operation. The calling thread provides a done() function pointer for post-calc execution and continues with other compute operations. It may, for instance, post the sending of the data blocks at this stage. Once the calculation is completed, the done() function passed by the calling thread is executed. The done() function is expected to trigger the sending of the code blocks.
 
-Asynchronous Encode and Send Calculations
+#### Asynchronous Encode and Send Calculations
 
 Generally, EC is used to spread an object store across multiple nodes (OSDs) in a cluster -- this operation is called striping an object. Applications using this model will be able to post a compound job that includes the entire striping operation to the adapter and continue to execute the next task. The adapter will offload both the EC calculation and send the corresponding blocks to the corresponding nodes.
 
-rograming Steps:
+##### Programing Steps:
 
 Post a compound operation encode_send(data, code, block_size, nodes, …).
 Free to continue with tasks execution.
@@ -81,12 +79,13 @@ The completion of the EC calculation is implicit. The entire transaction is cons
 
 The advantage of this method is reduced latency and message rates (IO operations) as the application saves a SW interrupt and cache-line bounces (due to completion context execution) which exists in the former two models. However, the conversion of existing applications to work in a fully offloaded striping operation is less trivial.
 
+## Examples
 
+### Basic erasure coding
 
+Location: [local erasure coding](../blob/ec_encode_example)
 
-
-
-Requirments:
+## Requirments:
 gf-complete
 Jerasure
 
