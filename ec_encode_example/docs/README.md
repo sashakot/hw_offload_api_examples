@@ -6,13 +6,10 @@ Audience is advanced users and developers.
 
 ## Reference
 
-[Reed Solomon Tutorial: Reed Solomon Encoding Example Case](https://www.youtube.com/watch?v=jgO09opx56o)
-
-[Swift Object Storage: Adding Erasure Codes ](http://www.snia.org/sites/default/files/Luse_Kevin_SNIATutorialSwift_Object_Storage2014_final.pdf)
-
-[RDMA Aware Networks Programming User Manual](http://www.mellanox.com/related-docs/prod_software/RDMA_Aware_Programming_user_manual.pdf)
-
-[OFVWG Erasure Coding RDMA Offload](https://downloads.openfabrics.org/ofv/erasure-coding.pdf)
+- [Reed Solomon Tutorial: Reed Solomon Encoding Example Case](https://www.youtube.com/watch?v=jgO09opx56o)
+- [Swift Object Storage: Adding Erasure Codes ](http://www.snia.org/sites/default/files/Luse_Kevin_SNIATutorialSwift_Object_Storage2014_final.pdf)
+- [RDMA Aware Networks Programming User Manual](http://www.mellanox.com/related-docs/prod_software/RDMA_Aware_Programming_user_manual.pdf)
+- [OFVWG Erasure Coding RDMA Offload](https://downloads.openfabrics.org/ofv/erasure-coding.pdf)
 
 ## What is Reed-Solomon Erasure Coding?
 
